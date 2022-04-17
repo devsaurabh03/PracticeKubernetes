@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment
+  labels:
+    type: sample-dep
+    env: production
+spec:
+  replicas: 6
+
+  selector:
+    matchLabels:
+      type: sample
+      app: frontend
+    
+  template:
+    metadata:
+      name: sample-pod
+      labels:
+        app: frontend
+        type: sample
+    spec:
+      containers:
+        - name: sample
+          image: nginx
+    

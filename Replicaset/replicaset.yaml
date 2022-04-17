@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: saurabh-app-replica1
+  labels:
+    type: ReplicaSet
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: sample
+      app: frontend
+  template:
+    metadata:
+          name: saurabh-app
+          labels:
+            type: sample
+            app: frontend
+    spec:
+      containers:
+        - name: saurabh-container1
+          image: nginx  
